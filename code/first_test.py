@@ -15,11 +15,11 @@ def stepDown():
     servo.value += 0.1
 
 def onKeyPress(event):
-    text.insert('end', 'You pressed %s\n' % (event.char, ))
+    if event.char == "w":
+        stepUp()
+    elif event.char == "s":
+        stepDown()
 
 root = tk.Tk()
-root.geometry('300x200')
-text = tk.Text(root, background='black', foreground='white')
-text.pack()
 root.bind('<KeyPress>', onKeyPress)
 root.mainloop()
