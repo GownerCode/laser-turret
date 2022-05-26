@@ -3,5 +3,5 @@ from time import sleep
 
 servo = Servo(25)
 
-servo.max()
+servo.min()
 sleep(10)
