@@ -1,13 +1,13 @@
 from gpiozero.pins.pigpio import PiGPIOFactory
 from gpiozero import Device
-from gpiozero import Servo
+from gpiozero import AngularServo
 from time import sleep
 import tkinter as tk
 
 Device.pin_factory = PiGPIOFactory()
 
-head = Servo(25)
-shoulder = Servo(24)
+head = AngularServo(25, min_pulse_width=1.050, max_pulse_width=2.5)
+shoulder = AngularServo(24)
 
 def stepUp():
     try:
