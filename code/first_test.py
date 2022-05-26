@@ -2,7 +2,9 @@ from gpiozero.pins.pigpio import PiGPIOFactory
 from gpiozero import Device
 from gpiozero import Servo
 from time import sleep
-from pynput import keyboard
+import Tkinter as tk
+
+servo = Servo(25)
 
 def stepUp():
     servo.value -= 0.1
@@ -10,29 +12,12 @@ def stepUp():
 def stepDown():
     servo.value += 0.1
 
-def on_press(key):
-    if key == keyboard.Key.esc:
-        return False  # stop listener
-    try:
-        k = key.char  # single-char keys
-    except:
-        k = key.name  # other keys
+def onKeyPress(event):
+    text.insert('end', 'You pressed %s\n' % (event.char, ))
 
-    print(f"{k} pressed")
-    if k in ['up', 'down']:  # keys of interest
-        # self.keys.append(k)  # store it in global-like variable
-        if k == "up":
-            servo.value -= 0.1
-        elif k == "down":
-            servo.value += 0.1
-        return False  # stop listener; remove this if want more keys
-
-Device.pin_factory = PiGPIOFactory()
-
-servo = Servo(25)
-
-servo.mid()
-sleep(1)
-
-with keyboard.Listener(on_press=on_press) as listener:
-    listener.join()
+root = tk.Tk()
+root.geometry('300x200')
+text = tk.Text(root, background='black', foreground='white', font=('Comic Sans MS', 12))
+text.pack()
+root.bind('<KeyPress>', onKeyPress)
+root.mainloop()
