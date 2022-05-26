@@ -7,7 +7,7 @@ import tkinter as tk
 Device.pin_factory = PiGPIOFactory()
 
 head = AngularServo(25, min_pulse_width=0.001050, max_pulse_width=0.0025)
-shoulder = AngularServo(24)
+shoulder = AngularServo(24, min_pulse_width=0.0006, max_pulse_width=0.0025)
 
 def stepUp():
     try:
