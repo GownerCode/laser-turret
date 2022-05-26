@@ -5,11 +5,9 @@ from time import sleep
 from pynput import keyboard
 
 def stepUp():
-    print("stepped up")
     servo.value -= 0.1
 
 def stepDown():
-    print("stepped down")
     servo.value += 0.1
 
 def on_press(key):
@@ -19,13 +17,13 @@ def on_press(key):
         k = key.char  # single-char keys
     except:
         k = key.name  # other keys
+
+    print(f"{k} pressed")
     if k in ['up', 'down']:  # keys of interest
         # self.keys.append(k)  # store it in global-like variable
         if k == "up":
-            print(f"pressed {k}")
             stepUp()
         elif k == "down":
-            print(f"pressed {k}")
             stepDown()
         return False  # stop listener; remove this if want more keys
 
