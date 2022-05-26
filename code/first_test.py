@@ -5,9 +5,11 @@ from time import sleep
 from pynput import keyboard
 
 def stepUp():
+    print("stepped up")
     servo.value -= 0.1
 
 def stepDown():
+    print("stepped down")
     servo.value += 0.1
 
 def on_press(key):
