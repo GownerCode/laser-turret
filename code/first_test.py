@@ -4,3 +4,4 @@ from time import sleep
 servo = Servo(25)
 
 servo.max()
+sleep(10)
