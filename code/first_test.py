@@ -22,9 +22,9 @@ def on_press(key):
     if k in ['up', 'down']:  # keys of interest
         # self.keys.append(k)  # store it in global-like variable
         if k == "up":
-            stepUp()
+            servo.value -= 0.1
         elif k == "down":
-            stepDown()
+            servo.value += 0.1
         return False  # stop listener; remove this if want more keys
 
 Device.pin_factory = PiGPIOFactory()
