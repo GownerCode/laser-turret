@@ -34,8 +34,5 @@ servo = Servo(25)
 servo.mid()
 sleep(1)
 
-listener = keyboard.Listener(on_press=on_press)
-listener.start()  # start to listen on a separate thread
-
-while True:
-    pass
+with keyboard.Listener(on_press=on_press) as listener:
+    listener.join()
