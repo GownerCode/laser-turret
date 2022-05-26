@@ -3,12 +3,6 @@ from time import sleep
 
 servo = Servo(25)
 
-while True:
-    servo.min()
-    sleep(1)
-    servo.mid()
-    sleep(1)
-    servo.max()
-    sleep(1)
-    servo.mid()
-    sleep(1)
+servo.value = 1
+sleep(5)
+servo.value = -1
