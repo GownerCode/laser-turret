@@ -22,8 +22,10 @@ def on_press(key):
     if k in ['up', 'down']:  # keys of interest
         # self.keys.append(k)  # store it in global-like variable
         if k == "up":
+            print(f"pressed {k}")
             stepUp()
         elif k == "down":
+            print(f"pressed {k}")
             stepDown()
         return False  # stop listener; remove this if want more keys
 
