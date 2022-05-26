@@ -2,7 +2,7 @@ from gpiozero.pins.pigpio import PiGPIOFactory
 from gpiozero import Device
 from gpiozero import Servo
 from time import sleep
-import Tkinter as tk
+import tkinter as tk
 
 servo = Servo(25)
 
